@@ -1,0 +1,124 @@
+/* Estilos generales */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+h1 {
+    margin: 20px 0;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Estilos para el encabezado */
+header {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 24px;
+}
+
+/* Estilos para la sección de productos */
+section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.producto {
+    background-color: #eee;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    text-align: center;
+    width: calc(33.33% - 20px);
+    border: 1px solid #ddd;
+}
+
+.producto h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.producto p {
+    margin-bottom: 10px;
+}
+
+.producto button {
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 10px;
+}
+
+/* Estilos para el carrito de compras */
+aside {
+    background-color: #eee;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-left: 20px;
+    padding: 20px;
+    width: calc(33.33% - 20px);
+    border: 1px solid #ddd;
+}
+
+aside h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+aside ul {
+    margin-bottom: 10px;
+}
+
+aside li {
+    margin-bottom: 5px;
+}
+
+#total {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Estilos para la sección de búsqueda */
+form {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    border-radius: 5px 0 0 5px;
+    border: none;
+    font-size: 16px;
+    padding: 10px;
+    width: 70%;
+}
+
+input[type="submit"] {
+    background-color: #333;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 10px;
+    width: 30%;
+}

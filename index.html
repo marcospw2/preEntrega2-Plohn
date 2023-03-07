@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pre-entrega 2</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<header>
+    <h1>Tienda de insumos tecnológicos</h1>
+    <form>
+        <label for="busqueda">Buscar por ID, precio o categoría:</label>
+        <input type="text" id="busqueda" name="busqueda" />
+        <button type="submit">Buscar</button>
+    </form>
+</header>
+<main>
+    <div id="productos">
+        <div class="producto">
+            <h2>Teclado mecánico</h2>
+            <p>ID: 1</p>
+            <p>Descripción: Teclado mecánico con retroiluminación RGB</p>
+            <p>Precio: $50</p>
+            <p>Categoría: Periféricos</p>
+            <button class="agregar" data-id="1">Agregar al carrito</button>
+        </div>
+
+        <div class="producto">
+            <h2>Mouse inalámbrico</h2>
+            <p>ID: 2</p>
+            <p>Descripción: Mouse inalámbrico con sensor óptico</p>
+            <p>Precio: $20</p>
+            <p>Categoría: Periféricos</p>
+            <button class="agregar" data-id="2">Agregar al carrito</button>
+        </div>
+
+        <div class="producto">
+            <h2>Monitor curvo</h2>
+            <p>ID: 3</p>
+            <p>Descripción: Monitor curvo de 27 pulgadas con resolución 1080p</p>
+            <p>Precio: $200</p>
+            <p>Categoría: Monitores</p>
+            <button class="agregar" data-id="3">Agregar al carrito</button>
+        </div>
+    </div>
+
+    <div id="carrito">
+        <h2>Carrito de compras</h2>
+        <ul id="lista-carrito"></ul>
+        <p id="total"></p>
+    </div>
+</main>
+
+<aside>
+    <h2>Carrito</h2>
+    <ul id="carrito">
+        <li>No hay productos en el carrito</li>
+    </ul>
+    <p>Total: <span id="total">$0</span></p>
+</aside>
+<footer>
+    <p>© 2023 Compra de insumos tecnológicos. Todos los derechos reservados.</p>
+</footer>
+</body>
+<script src="./js/js.js"></script>
+
+</html>
