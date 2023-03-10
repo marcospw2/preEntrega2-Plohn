@@ -15,7 +15,7 @@ const formBusqueda = document.querySelector("form");
 // Carrito de compras
 let carritoDeCompras = [];
 
-// Agregar evento de clic al botón "Agregar al carrito"
+// Agregar evento de click al botón "Agregar al carrito"
 botonAgregar.forEach((boton) => {
     boton.addEventListener("click", () => {
         const productoId = boton.getAttribute("data-id");
@@ -26,15 +26,23 @@ botonAgregar.forEach((boton) => {
 });
 
 // Actualizar carrito de compras
+
 function actualizarCarrito() {
-    carrito.innerHTML = "";
-    carritoDeCompras.forEach((producto) => {
-        const li = document.createElement("li");
-        li.innerText = `${producto.nombre} - $${producto.precio}`;
-        carrito.appendChild(li);
-    });
-    calcularTotal();
+    const listaCarrito = document.querySelector("#lista-carrito");
+    listaCarrito.innerHTML = "";
+    if (carritoDeCompras.length === 0) {
+        listaCarrito.innerHTML = "<li>No hay productos en el carrito</li>";
+        total.innerText = "$0";
+    } else {
+        carritoDeCompras.forEach((producto) => {
+            const li = document.createElement("li");
+            li.innerText = `${producto.nombre} - $${producto.precio}`;
+            listaCarrito.appendChild(li);
+        });
+        calcularTotal();
+    }
 }
+
 
 // Calcular total de compra
 function calcularTotal() {
@@ -45,16 +53,38 @@ function calcularTotal() {
     total.innerText = `$${totalDeCompra}`;
 }
 
+
+
+
 // Buscar productos por ID, precio o categoría
 formBusqueda.addEventListener("submit", (evento) => {
     evento.preventDefault();
     const valorBusqueda = busqueda.value.toLowerCase();
     const productosEncontrados = productos.filter((producto) => {
+        // Convertir los valores de ID y Precio a string en minúsculas para la comparación
+        const id = producto.id.toString().toLowerCase();
+        const precio = producto.precio.toString().toLowerCase();
         return (
-            producto.id.toString().toLowerCase().includes(valorBusqueda) ||
-            producto.precio.toString().toLowerCase().includes(valorBusqueda) ||
-            producto.categoria.toLowerCase().includes(valorBusqueda)
+            id.includes(valorBusqueda) ||
+            precio.includes(valorBusqueda) ||
+            producto.categoria.toLowerCase().includes(valorBusqueda) ||
+            producto.nombre.toLowerCase().includes(valorBusqueda) ||
+            producto.descripcion.toLowerCase().includes(valorBusqueda)
         );
     });
     console.log(productosEncontrados);
 });
+
+
+// formBusqueda.addEventListener("submit", (evento) => {
+//     evento.preventDefault();
+//     const valorBusqueda = busqueda.value.toLowerCase();
+//     const productosEncontrados = productos.filter((producto) => {
+//         return (
+//             producto.id.toString().toLowerCase().includes(valorBusqueda) ||
+//             producto.precio.toString().toLowerCase().includes(valorBusqueda) ||
+//             producto.categoria.toLowerCase().includes(valorBusqueda)
+//         );
+//     });
+//     console.log(productosEncontrados);
+// });
