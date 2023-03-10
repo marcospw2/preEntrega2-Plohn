@@ -8,7 +8,7 @@ const productos = [
 // Selección de elementos HTML
 const botonAgregar = document.querySelectorAll(".agregar");
 const carrito = document.querySelector("#carrito");
-const total = document.querySelector("#total");
+const total = document.querySelector("#total-aside");
 const busqueda = document.querySelector("#busqueda");
 const formBusqueda = document.querySelector("form");
 
