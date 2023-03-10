@@ -53,26 +53,53 @@ function calcularTotal() {
     total.innerText = `$${totalDeCompra}`;
 }
 
-
-
-
 // Buscar productos por ID, precio o categoría
+
 formBusqueda.addEventListener("submit", (evento) => {
     evento.preventDefault();
     const valorBusqueda = busqueda.value.toLowerCase();
-    const productosEncontrados = productos.filter((producto) => {
-        // Convertir los valores de ID y Precio a string en minúsculas para la comparación
-        const id = producto.id.toString().toLowerCase();
-        const precio = producto.precio.toString().toLowerCase();
-        return (
-            id.includes(valorBusqueda) ||
-            precio.includes(valorBusqueda) ||
-            producto.categoria.toLowerCase().includes(valorBusqueda) ||
-            producto.nombre.toLowerCase().includes(valorBusqueda) ||
-            producto.descripcion.toLowerCase().includes(valorBusqueda)
-        );
-    });
+    let productosEncontrados;
+    if (valorBusqueda.startsWith(">")) {
+        const precioFiltro = parseFloat(valorBusqueda.substring(1));
+        productosEncontrados = productos.filter((producto) => producto.precio > precioFiltro);
+    } else if (valorBusqueda.startsWith("<")) {
+        const precioFiltro = parseFloat(valorBusqueda.substring(1));
+        productosEncontrados = productos.filter((producto) => producto.precio < precioFiltro);
+    } else {
+        productosEncontrados = productos.filter((producto) => {
+            const id = producto.id.toString().toLowerCase();
+            const precio = producto.precio.toString().toLowerCase();
+            return (
+                id.includes(valorBusqueda) ||
+                precio.includes(valorBusqueda) ||
+                producto.categoria.toLowerCase().includes(valorBusqueda) ||
+                producto.nombre.toLowerCase().includes(valorBusqueda) ||
+                producto.descripcion.toLowerCase().includes(valorBusqueda)
+            );
+        });
+    }
     console.log(productosEncontrados);
 });
+
+
+
+
+// formBusqueda.addEventListener("submit", (evento) => {
+//     evento.preventDefault();
+//     const valorBusqueda = busqueda.value.toLowerCase();
+//     const productosEncontrados = productos.filter((producto) => {
+//         // Convertir los valores de ID y Precio a string en minúsculas para la comparación
+//         const id = producto.id.toString().toLowerCase();
+//         const precio = producto.precio.toString().toLowerCase();
+//         return (
+//             id.includes(valorBusqueda) ||
+//             precio.includes(valorBusqueda) ||
+//             producto.categoria.toLowerCase().includes(valorBusqueda) ||
+//             producto.nombre.toLowerCase().includes(valorBusqueda) ||
+//             producto.descripcion.toLowerCase().includes(valorBusqueda)
+//         );
+//     });
+//     console.log(productosEncontrados);
+// });
 
 
