@@ -8,7 +8,7 @@ const productos = [
 // Selección de elementos HTML
 const botonAgregar = document.querySelectorAll(".agregar");
 const carrito = document.querySelector("#carrito");
-const total = document.querySelector("#total");
+const total = document.querySelector("#total-aside");
 const busqueda = document.querySelector("#busqueda");
 const formBusqueda = document.querySelector("form");
 
@@ -76,15 +76,3 @@ formBusqueda.addEventListener("submit", (evento) => {
 });
 
 
-// formBusqueda.addEventListener("submit", (evento) => {
-//     evento.preventDefault();
-//     const valorBusqueda = busqueda.value.toLowerCase();
-//     const productosEncontrados = productos.filter((producto) => {
-//         return (
-//             producto.id.toString().toLowerCase().includes(valorBusqueda) ||
-//             producto.precio.toString().toLowerCase().includes(valorBusqueda) ||
-//             producto.categoria.toLowerCase().includes(valorBusqueda)
-//         );
-//     });
-//     console.log(productosEncontrados);
-// });
